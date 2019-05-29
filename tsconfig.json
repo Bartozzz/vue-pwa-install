@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "strict": true,
+
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./lib",
+
+    "importHelpers": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+  }
+}

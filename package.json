@@ -1,0 +1,42 @@
+{
+  "name": "vue-pwa-install",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Bartosz Łaniewski",
+  "license": "MIT",
+  "homepage": "https://github.com/milosolutions/vue-pwa-install",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/milosolutions/vue-pwa-install.git"
+  },
+  "bugs": {
+    "url": "https://github.com/milosolutions/vue-pwa-install/issues"
+  },
+  "keywords": [
+    "vue",
+    "pwa",
+    "install",
+    "prompt"
+  ],
+  "peerDependencies": {
+    "typescript": ">=2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.1",
+    "tslib": "1.9.3",
+    "typescript": "^3.2.1",
+    "vue": "^2.5.17",
+    "vue-class-component": "^6.2.0",
+    "vue-property-decorator": "^7.0.0"
+  },
+  "scripts": {
+    "build": "npx tsc",
+    "test": "npx mocha"
+  }
+}
