@@ -85,6 +85,6 @@ You can still inject `VueInstallMixin` manually directly into your components:
 import { VueInstallMixin } from "vue-pwa-install";
 
 export default {
-  mixins: [VueofflineMixin]
+  mixins: [VueInstallMixin]
 };
 ```
