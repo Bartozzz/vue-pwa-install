@@ -4,15 +4,15 @@
   "description": "",
   "author": "Bartosz Łaniewski",
   "license": "MIT",
-  "homepage": "https://github.com/milosolutions/vue-pwa-install",
+  "homepage": "https://github.com/Bartozzz/vue-pwa-install",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/milosolutions/vue-pwa-install.git"
+    "url": "https://github.com/Bartozzz/vue-pwa-install.git"
   },
   "bugs": {
-    "url": "https://github.com/milosolutions/vue-pwa-install/issues"
+    "url": "https://github.com/Bartozzz/vue-pwa-install/issues"
   },
   "keywords": [
     "vue",
