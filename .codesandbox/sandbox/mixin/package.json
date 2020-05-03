@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "@vue/cli-plugin-babel": "4.1.1",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-pwa-install": "latest"
   },
   "devDependencies": {
     "@vue/cli-plugin-eslint": "4.1.1",

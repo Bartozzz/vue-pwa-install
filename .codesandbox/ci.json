@@ -1,6 +1,3 @@
 {
-  "sandboxes": [
-    "/.codesandbox/sandbox/manual",
-    "/.codesandbox/sandbox/automatic"
-  ]
+  "sandboxes": ["/.codesandbox/sandbox/mixin", "/.codesandbox/sandbox/plugin"]
 }
