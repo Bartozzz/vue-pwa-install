@@ -180,7 +180,7 @@ module.exports = require("vue");
 __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
-__webpack_require__.d(__webpack_exports__, "VueInstallMixin", function() { return /* reexport */ VueInstallMixin; });
+__webpack_require__.d(__webpack_exports__, "VuePwaInstallMixin", function() { return /* reexport */ VuePwaInstallMixin; });
 __webpack_require__.d(__webpack_exports__, "VuePwaInstallPlugin", function() { return /* reexport */ VuePwaInstallPlugin; });
 
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
@@ -220,7 +220,7 @@ function isBeforeInstallPromptEvent(e) {
   return Boolean(e) && "prompt" in e;
 }
 
-var VueInstallMixin = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+var VuePwaInstallMixin = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
   mounted: function mounted() {
     var _this = this;
 
@@ -240,7 +240,7 @@ var VueInstallMixin = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.ext
 });
 var VuePwaInstallPlugin = {
   install: function install(Vue) {
-    Vue.mixin(VueInstallMixin);
+    Vue.mixin(VuePwaInstallMixin);
   }
 };
 /* harmony default export */ var src_0 = (VuePwaInstallPlugin);

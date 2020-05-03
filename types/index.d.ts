@@ -30,9 +30,6 @@ export interface BeforeInstallPromptEvent extends Event {
      */
     prompt(): Promise<void>;
 }
-export interface PluginOptions {
-    mixin: boolean;
-}
-export declare const VueInstallMixin: import("vue/types/vue").ExtendedVue<Vue, unknown, unknown, unknown, Record<never, any>>;
-export declare const VuePwaInstallPlugin: PluginObject<PluginOptions>;
+export declare const VuePwaInstallMixin: import("vue/types/vue").ExtendedVue<Vue, unknown, unknown, unknown, Record<never, any>>;
+export declare const VuePwaInstallPlugin: PluginObject<void>;
 export default VuePwaInstallPlugin;
