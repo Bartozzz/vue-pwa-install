@@ -1,0 +1,20 @@
+{
+  "name": "vue-pwa-install-mixin-sandbox",
+  "version": "0.1.0",
+  "description": "Vue.js example project with the PWA Install mixin",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@vue/cli-plugin-babel": "4.1.1",
+    "vue": "^2.6.11",
+    "vue-pwa-install": "../../../"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "4.1.1",
+    "vue-template-compiler": "^2.6.11"
+  }
+}

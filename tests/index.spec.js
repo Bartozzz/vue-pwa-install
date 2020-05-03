@@ -1,7 +1,7 @@
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import MixinComponent from "./MixinComponent";
 import PluginComponent from "./PluginComponent";
-import VuePwaInstallPlugin, { VueInstallMixin } from "../src/index";
+import VuePwaInstallPlugin, { VuePwaInstallMixin } from "../src/index";
 
 const eventMock = { prompt() {} };
 const eventMap = {};
@@ -41,7 +41,7 @@ describe("Plugin", () => {
 describe("Mixin", () => {
   it("emits 'canInstall' on 'beforeinstallprompt' event", async () => {
     const wrapper = shallowMount(MixinComponent, {
-      mixins: [VueInstallMixin],
+      mixins: [VuePwaInstallMixin],
     });
 
     triggerWindowEvent("beforeinstallprompt", eventMock);
