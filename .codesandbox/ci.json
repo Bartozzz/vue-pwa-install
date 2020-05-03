@@ -1,0 +1,6 @@
+{
+  "sandboxes": [
+    "/.codesandbox/sandbox/manual",
+    "/.codesandbox/sandbox/automatic"
+  ]
+}

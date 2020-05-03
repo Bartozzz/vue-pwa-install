@@ -38,7 +38,7 @@ function isBeforeInstallPromptEvent(e: Event): e is BeforeInstallPromptEvent {
   return Boolean(e) && "prompt" in e;
 }
 
-export const VueInstallMixin = Vue.extend({
+export const VuePwaInstallMixin = Vue.extend({
   mounted() {
     if (typeof window !== undefined) {
       const installHandler = (event: Event) => {
@@ -58,7 +58,7 @@ export const VueInstallMixin = Vue.extend({
 
 export const VuePwaInstallPlugin: PluginObject<void> = {
   install(Vue) {
-    Vue.mixin(VueInstallMixin);
+    Vue.mixin(VuePwaInstallMixin);
   },
 };
 
