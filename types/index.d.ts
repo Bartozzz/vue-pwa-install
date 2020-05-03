@@ -1,5 +1,4 @@
-import { PluginObject } from "vue";
-import { Vue } from "vue-property-decorator";
+import Vue, { PluginObject } from "vue";
 /**
  * The BeforeInstallPromptEvent is fired at the Window.onbeforeinstallprompt
  * handler before a user is prompted to "install" a web site to a home screen
@@ -34,9 +33,6 @@ export interface BeforeInstallPromptEvent extends Event {
 export interface PluginOptions {
     mixin: boolean;
 }
-export declare class VueInstallMixin extends Vue {
-    installHandler: (event: Event) => void;
-    mounted(): void;
-}
-declare const InstallPlugin: PluginObject<PluginOptions>;
-export default InstallPlugin;
+export declare const VueInstallMixin: import("vue/types/vue").ExtendedVue<Vue, unknown, unknown, unknown, Record<never, any>>;
+export declare const VuePwaInstallPlugin: PluginObject<PluginOptions>;
+export default VuePwaInstallPlugin;

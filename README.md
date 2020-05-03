@@ -47,7 +47,7 @@ Vue.use(VueInstall);
       this.deferredPrompt.prompt();
 
       // Wait for the user to respond to the prompt:
-      this.deferredPrompt.userChoice.then(choiceResult => {
+      this.deferredPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === "accepted") {
           console.log("User accepted the install prompt");
         } else {
@@ -75,7 +75,7 @@ By default `VueInstallMixin` is injected into every component. You can disable t
 
 ```js
 Vue.use(VueInstall, {
-  mixin: false
+  mixin: false,
 });
 ```
 
@@ -85,6 +85,6 @@ You can still inject `VueInstallMixin` manually directly into your components:
 import { VueInstallMixin } from "vue-pwa-install";
 
 export default {
-  mixins: [VueInstallMixin]
+  mixins: [VueInstallMixin],
 };
 ```

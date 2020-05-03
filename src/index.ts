@@ -1,5 +1,4 @@
-import { PluginObject } from "vue";
-import { Vue, Component } from "vue-property-decorator";
+import Vue, { PluginObject } from "vue";
 
 /**
  * The BeforeInstallPromptEvent is fired at the Window.onbeforeinstallprompt
@@ -35,50 +34,32 @@ export interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
 }
 
-export interface PluginOptions {
-  // Whenever VueInstallMixin should be registered
-  mixin: boolean;
+function isBeforeInstallPromptEvent(e: Event): e is BeforeInstallPromptEvent {
+  return Boolean(e) && "prompt" in e;
 }
 
-/**
- * Type guard which checks if a given Event is BeforeInstallPromptEvent.
- *
- * @param   {Event}     event
- * @return  {boolean}   If event is of type BeforeInstallPromptEvent
- */
-function isBeforeInstallPromptEvent(
-  event: Event
-): event is BeforeInstallPromptEvent {
-  return "prompt" in event;
-}
-
-@Component
-export class VueInstallMixin extends Vue {
-  installHandler = (event: Event) => {
-    if (isBeforeInstallPromptEvent(event)) {
-      this.$emit("canInstall", event);
-    }
-  };
-
+export const VueInstallMixin = Vue.extend({
   mounted() {
-    // Check in case we are server-side rendering:
     if (typeof window !== undefined) {
-      window.addEventListener("beforeinstallprompt", this.installHandler);
+      const installHandler = (event: Event) => {
+        if (isBeforeInstallPromptEvent(event)) {
+          this.$emit("canInstall", event);
+        }
+      };
 
-      // See: https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks
+      window.addEventListener("beforeinstallprompt", installHandler);
+
       this.$once("hook:beforeDestroy", () => {
-        window.removeEventListener("beforeinstallprompt", this.installHandler);
+        window.removeEventListener("beforeinstallprompt", installHandler);
       });
     }
-  }
-}
+  },
+});
 
-const InstallPlugin: PluginObject<PluginOptions> = {
-  install(Vue, options = { mixin: true }) {
-    if (options.mixin) {
-      Vue.mixin(VueInstallMixin);
-    }
-  }
+export const VuePwaInstallPlugin: PluginObject<void> = {
+  install(Vue) {
+    Vue.mixin(VueInstallMixin);
+  },
 };
 
-export default InstallPlugin;
+export default VuePwaInstallPlugin;

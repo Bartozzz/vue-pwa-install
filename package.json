@@ -1,12 +1,16 @@
 {
   "name": "vue-pwa-install",
+  "main": "dist/vue-pwa-install.common.js",
+  "types": "types/index.d.ts",
   "version": "1.0.0",
+  "license": "MIT",
   "description": "",
   "author": "Bartosz Łaniewski",
-  "license": "MIT",
+  "files": [
+    "/dist",
+    "/types"
+  ],
   "homepage": "https://github.com/Bartozzz/vue-pwa-install",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/Bartozzz/vue-pwa-install.git"
@@ -20,23 +24,38 @@
     "install",
     "prompt"
   ],
+  "scripts": {
+    "build": "vue-cli-service build --target lib --name vue-pwa-install src/index.ts",
+    "postbuild": "rimraf dist/demo.html",
+    "test:unit": "vue-cli-service test:unit",
+    "test": "npm run test:lint && npm run test:unit",
+    "test:lint": "vue-cli-service lint"
+  },
+  "dependencies": {},
   "peerDependencies": {
-    "typescript": ">=2"
+    "vue": ">=2"
   },
   "devDependencies": {
-    "@types/chai": "^4.0.4",
-    "@types/mocha": "^5.2.5",
-    "chai": "^4.1.2",
-    "mocha": "^5.2.0",
-    "ts-node": "^7.0.1",
-    "tslib": "1.9.3",
-    "typescript": "^3.2.1",
-    "vue": "^2.5.17",
-    "vue-class-component": "^6.2.0",
-    "vue-property-decorator": "^7.0.0"
-  },
-  "scripts": {
-    "build": "npx tsc",
-    "test": "npx mocha"
+    "@types/jest": "25.2.1",
+    "@typescript-eslint/eslint-plugin": "2.30.0",
+    "@typescript-eslint/parser": "2.30.0",
+    "@vue/cli-plugin-babel": "4.3.1",
+    "@vue/cli-plugin-eslint": "4.3.1",
+    "@vue/cli-plugin-typescript": "4.3.1",
+    "@vue/cli-plugin-unit-jest": "4.3.1",
+    "@vue/cli-service": "4.3.1",
+    "@vue/eslint-config-prettier": "6.0.0",
+    "@vue/eslint-config-typescript": "5.0.2",
+    "@vue/test-utils": "1.0.0-beta.33",
+    "babel-core": "6.26.3",
+    "babel-jest": "25.5.1",
+    "eslint": "6.8.0",
+    "eslint-plugin-prettier": "3.1.3",
+    "eslint-plugin-vue": "6.2.2",
+    "prettier": "2.0.5",
+    "rimraf": "3.0.2",
+    "typescript": "~3.8.3",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "2.6.11"
   }
 }
