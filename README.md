@@ -1,37 +1,54 @@
-# Vue PWA Install
+<div align="center">
+  <h1>Vue PWA Install</h1>
+
+[![Default CI/CD](https://github.com/Bartozzz/vue-pwa-install/workflows/Default%20CI/CD/badge.svg)](https://github.com/Bartozzz/vue-pwa-install/actions)
+[![Known Vulnerabilities](https://snyk.io/test/github/Bartozzz/vue-pwa-install/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Bartozzz/vue-pwa-install?targetFile=package.json)
+[![npm version](https://img.shields.io/npm/v/vue-pwa-install.svg)](https://www.npmjs.com/package/vue-pwa-install)
+[![npm dependency Status](https://david-dm.org/Bartozzz/vue-pwa-install.svg)](https://www.npmjs.com/package/vue-pwa-install)
+[![npm downloads](https://img.shields.io/npm/dt/vue-pwa-install.svg)](https://www.npmjs.com/package/vue-pwa-install)
+<br>
 
 This library allows you to listen for [`beforeinstallprompt` event](https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent) painlessly in your Vue.js application. It comes handy when you're building offline-first Progressive Web Apps and want to [display a custom "_Add to home screen_" banner](https://developers.google.com/web/fundamentals/app-install-banners/) on you web app. Adds `canInstall` event via a global mixin. Exposes useful TypeScript definitions.
 
-- [Installation](#installation)
-- [Usage](#usage)
+</div>
 
 ## Installation
 
-You can install `vue-pwa-install` with with the following command:
-
-```
-$ npm install --save vue-pwa-install
-```
-
-Then, use it in your application as shown:
-
-```js
-import VueInstall from "vue-pwa-install";
-
-Vue.use(VueInstall);
+```bash
+$ npm install vue-pwa-install
 ```
 
 ## Usage
 
+### As a plugin
+
+`VuePwaInstallMixin` will be injected into every component.
+
+```js
+import VuePwaInstallPlugin from "vue-pwa-install";
+
+Vue.use(VuePwaInstallPlugin);
+```
+
+### As a mixin
+
+You can inject `VuePwaInstallMixin` manually directly into your components.
+
+```js
+import { VuePwaInstallMixin } from "vue-pwa-install";
+
+export default {
+  mixins: [VuePwaInstallMixin],
+};
+```
+
+### Inside a component
+
 ```html
 <template>
-  <div id="app">
-    <div id="install-banner" v-if="deferredPrompt">
-      <button @onClick="promptInstall">Add to home screen</button>
-    </div>
-
-    <router-view></router-view>
-  </div>
+  <button v-if="deferredPrompt" @onClick="promptInstall">
+    Add to home screen
+  </button>
 </template>
 
 <script lang="ts">
@@ -69,22 +86,4 @@ Vue.use(VueInstall);
     }
   }
 </script>
-```
-
-By default `VueInstallMixin` is injected into every component. You can disable this behavior by setting plugin option `mixin` to `false`, as follows:
-
-```js
-Vue.use(VueInstall, {
-  mixin: false,
-});
-```
-
-You can still inject `VueInstallMixin` manually directly into your components:
-
-```js
-import { VueInstallMixin } from "vue-pwa-install";
-
-export default {
-  mixins: [VueInstallMixin],
-};
 ```
