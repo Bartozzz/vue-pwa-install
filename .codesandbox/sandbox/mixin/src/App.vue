@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Vue PWA Install mixin</h1>
+    <h1>Vue PWA Install – mixin</h1>
 
     <button v-if="deferredPrompt" @onClick="promptInstall">
       Add to home screen
